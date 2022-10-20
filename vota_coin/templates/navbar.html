@@ -1,4 +1,31 @@
 {% load static %}
+
+
+<script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', () => {
+
+  // Get all "navbar-burger" elements
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+
+});
+
+</script>
+
 <nav class="navbar is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
  
@@ -12,7 +39,7 @@
 
   <div id="navbarBasicExample" class="navbar-menu ">
     <div class="navbar-start">
-      <a class="navbar-item" href="ventas">
+<!--       <a class="navbar-item" href="ventas">
           <button class="button is-primary  ">        Listado de Ventas</button>
   
 
@@ -21,7 +48,7 @@
       <a class="navbar-item" href="recompensas">
         <button class="button is-link  ">Recompensas</button>
         
-      </a>
+      </a> -->
 
       <div class="navbar-item has-dropdown is-hoverable">
  <!--        <a class="navbar-link">
@@ -45,7 +72,7 @@
         </div> -->
       </div>
     </div>
-
+{% if user.is_authenticated %}
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
@@ -59,5 +86,6 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
 </nav>

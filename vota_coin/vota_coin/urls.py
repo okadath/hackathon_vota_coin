@@ -14,8 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path , include  
+from django.conf import settings
+from django.conf.urls.static import static
+from extended_user.views import *
+from vota_coin.views import *
+
+from .views import *    
+from django.contrib.auth.views import PasswordResetView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('votaciones/', include("votaciones.urls")), 
+    path("login/", login_func, name='login_func'),
+    path("", home, name='home'),
+    path('logout/', logout, name='logout'),
+    path("votacoin", votacoin, name='votacoin'),
+
 ]
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+ 

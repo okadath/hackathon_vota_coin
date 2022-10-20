@@ -8,7 +8,11 @@ install = "*"
 web3 = "*"
 py-solc-x = "*"
 python-decouple = "*"
-django = "*"
+django = "==3.2.15"
+django-import-export = "*"
+weasyprint = "*"
+bleach = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 

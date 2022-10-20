@@ -6,46 +6,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Las enseñanzas más recientes, prácticas e inspiradoras sobre el liderazgo
-impartidas por oradores de primer nivel en una sede cerca de ti.">
     <meta name="author" content="Creative Tim">
     <title>Spanish Link</title>
     <!-- Extra details for Live View on GitHub Pages -->
     <!-- Canonical SEO -->
     <!--  Social tags      -->
-    <meta name="keywords" content="Spanish Link, cgl, cgl mexico, mexico, guadalajara, durango, monterrey, cdmx, ciudad de mexico, toluca, cancun">
-    <meta name="description" content="Las enseñanzas más recientes, prácticas e inspiradoras sobre el liderazgo
-impartidas por oradores de primer nivel en una sede cerca de ti.">
-    <!-- Schema.org markup for Google+ -->
-    <meta itemprop="name" content="Spanish Link">
-    <meta itemprop="description" content="Las enseñanzas más recientes, prácticas e inspiradoras sobre el liderazgo
-impartidas por oradores de primer nivel en una sede cerca de ti.">
-    <meta itemprop="image" content="https://lacumbreglobal.mx/wp-content/uploads/sites/2/2020/05/Arte-Principal-Pag-Web-CGL-2020-21.jpg">
-    <!-- Twitter Card data -->
-    <meta name="twitter:card" content="product">
-    <meta name="twitter:site" content="@creativetim">
-    <meta name="twitter:title" content="Spanish Link">
-    <meta name="twitter:description" content="Las enseñanzas más recientes, prácticas e inspiradoras sobre el liderazgo
-impartidas por oradores de primer nivel en una sede cerca de ti.">
-    <meta name="twitter:image" content="https://lacumbreglobal.mx/wp-content/uploads/sites/2/2020/05/Arte-Principal-Pag-Web-CGL-2020-21.jpg">
-    <!-- Open Graph data -->
-    <meta property="fb:app_id" content="655968634437471">
-    <meta property="og:title" content="Spanish Link" />
-    <meta property="og:type" content="article" />
-    <meta property="og:image" content="https://lacumbreglobal.mx/wp-content/uploads/sites/2/2020/05/Arte-Principal-Pag-Web-CGL-2020-21.jpg" />
-    <meta property="og:description" content="Las enseñanzas más recientes, prácticas e inspiradoras sobre el liderazgo
-impartidas por oradores de primer nivel en una sede cerca de ti." />
-    <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="76x76" href="https://globalleadership.org/wp-content/themes/JointsWP-CSS-master/assets/images/logo_summit_mountain_white.png" />
-    <link rel="icon" href="https://globalleadership.org/wp-content/themes/JointsWP-CSS-master/assets/images/logo_summit_mountain_white.png" type="image/png">
+ 
+ 
+ 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
-    <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
+<!--     <link rel="stylesheet" href="{% static 'assets/vendor/nucleo/css/nucleo.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome/fontawesome-free/css/all.min.css' %}" type="text/css">
-    <!-- Argon CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/argon.min.css' %}" type="text/css">
-    <!-- Google Tag Manager -->
+ 
+    <link rel="stylesheet" href="  {% static 'assets/css/argon.min.css' %}" type="text/css">
+  Google Tag Manager -->
 
     <!-- End Google Tag Manager -->
 </head>
@@ -60,10 +36,12 @@ impartidas por oradores de primer nivel en una sede cerca de ti." />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
+{% include './navbar.html' %}
+
 <section class="section">
     <div class="container">
         <h1 class="title">
-            Fast Demo
+            Vota Demo
         </h1>
 
             <nav class="panel">
@@ -79,9 +57,10 @@ impartidas por oradores de primer nivel en una sede cerca de ti." />
                                     {% csrf_token %}
               <div class="panel-block">
                 <div class="field">
-                    <label class="label">Username</label>
+                    <label class="label">Email</label>
                     <div class="control has-icons-left has-icons-right">
-                        <input class="input is-success" type="text" placeholder="Id_user" name="id_user" id="id_user" >
+                        <input class="input is-success" type="email" placeholder="Email" name="id_email" id="id_email" >
+ 
                         <!-- <input name="email" class="form-control" placeholder=" Email" type="email"> -->
                         <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
@@ -90,6 +69,20 @@ impartidas por oradores de primer nivel en una sede cerca de ti." />
                             <i class="fas fa-check"></i>
                         </span> -->
                     </div>
+
+                    <label class="label">Password</label>
+                    <div class="control has-icons-left has-icons-right">
+ 
+                        <input class="input is-success" type="password" placeholder="Password" name="id_password" id="id_password" >
+                        <!-- <input name="email" class="form-control" placeholder=" Email" type="email"> -->
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+<!--                         <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span> -->
+                    </div>
+
                     <!-- <p class="help is-success">This username is available</p> -->
                     <br>
                     <div class="field is-grouped">
@@ -106,7 +99,13 @@ impartidas por oradores de primer nivel en una sede cerca de ti." />
                 </div>
             </div>
             </form>
+
+
         </nav>
+
+
+{{user}}
+
 
     </div>
 </section>
@@ -136,15 +135,14 @@ impartidas por oradores de primer nivel en una sede cerca de ti." />
 
 <!-- Argon Scripts -->
 <!-- Core -->
-<script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+<!-- <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
 <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
 <script src="{% static 'assets/vendor/js-cookie/js.cookie.js' %}"></script>
 <script src="{% static 'assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
-<script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
-<!-- Argon JS -->
+<script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script> 
 <script src="{% static 'assets/js/argon.min.js' %}"></script>
-<!-- Demo JS - remove this in your project -->
+Demo JS - remove this in your project
 <script src="{% static 'assets/js/demo.min.js' %}"></script>
-</body>
-
+</body> -->
+ 
 </html>
