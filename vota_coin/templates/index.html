@@ -35,7 +35,8 @@
     <!-- mi mierda -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 {% include './navbar.html' %}
 
 <section class="section">
@@ -43,10 +44,68 @@
         <h1 class="title">
             Vota Demo
         </h1>
-
         <nav class="panel">
           <p class="panel-heading">
-            Login
+            Votacion para holders
+        </p>
+        {% if error_messages %}
+        <div class="alert alert-danger">
+            <strong>{{ error_messages }}</strong>
+        </div>
+        {% endif %}
+        <!-- <form method="post" action="{% url 'login_func' %}"> -->
+            <!-- {% csrf_token %} -->
+            <div class="panel-block">
+                <div class="field">
+
+                    <div class="field is-grouped">
+                      <div class="control">  
+                        <button  type="submit" class="button is-success enableEthereumButton"> Enable Ethereum</button>
+                        <h2>Account: <span class="showAccount"></span></h2>
+                        </div>
+                    <br>
+
+                    </div>
+                </div>
+            </div>
+        <!-- </form> -->
+        </nav>
+
+<script type="text/javascript">
+// In Node.js, con el cdn se inicializa solo
+// const Web3 = require('web3');
+
+const web3 = new Web3('https://rpc.api.moonbase.moonbeam.network'); 
+console.log(web3);
+
+
+const ethereumButton = document.querySelector('.enableEthereumButton');
+const showAccount = document.querySelector('.showAccount');
+
+ethereumButton.addEventListener('click', () => {
+  const acc=getAccount();
+  printAccount(acc);
+
+});
+
+async function getAccount() {
+  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+  const account = accounts[0];
+  showAccount.innerHTML = account;
+  return account
+}
+
+async function printAccount(account) {
+console.log(account);
+
+}
+
+</script>
+
+ 
+        <nav class="panel">
+          <p class="panel-heading">
+            Votacion con registro 
         </p>
         {% if error_messages %}
         <div class="alert alert-danger">
@@ -76,6 +135,8 @@
                     <div class="field is-grouped">
                       <div class="control"> 
                         <button class="button is-link" type="submit" >Login</button>
+                        <button class="button is-success" type="submit" >No tienes cuenta? Registrate</button>
+
                     </div>
                     <br>
  
