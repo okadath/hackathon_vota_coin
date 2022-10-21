@@ -2,8 +2,8 @@
 
 pragma solidity ^0.7.0;
 
-import '../token/ERC20/ERC20.sol';
-import '../access/Ownable.sol';
+import './ERC20.sol';
+import './Ownable.sol';
 // This ERC-20 contract mints the specified amount of tokens to the contract creator.
 contract MyToken is ERC20, Ownable {
   constructor(uint256 initialSupply) ERC20("VOTA", "Vota_token") {
