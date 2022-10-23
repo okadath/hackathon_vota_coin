@@ -11,7 +11,7 @@ provider_rpc = {
     'development': 'http://localhost:9933',
     'alphanet': 'https://rpc.api.moonbase.moonbeam.network',
 }
-web3 = Web3(Web3.HTTPProvider(provider_rpc['alphanet']))  # Change to correct network
+web3 = Web3(Web3.HTTPProvider(provider_rpc['development']))  # Change to correct network
 
 account_from = {
     'private_key':  private_key,

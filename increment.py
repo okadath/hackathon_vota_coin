@@ -6,35 +6,35 @@ private_key = config('secret')
 address = config('address')
 contract = config('contract')
 
-
 provider_rpc = {
     'development': 'http://localhost:9933',
     'alphanet': 'https://rpc.api.moonbase.moonbeam.network',
 }
-web3 = Web3(Web3.HTTPProvider(provider_rpc['development']))  # Change to correct network
+web3 = Web3(Web3.HTTPProvider(provider_rpc["development"]))  # Change to correct network
 
 account_from = {
     'private_key':  private_key,
-    'address': address,
+    'address':  address,
 }
 
-print(f'Attempting to deploy from account: { account_from["address"] }')
+contract_address =  contract
+value = 3
 
-MyToken = web3.eth.contract(abi=abi, bytecode=bytecode)
+print(
+    f'Calling the increment by { value } function in contract at address: { contract_address }'
+)
 
-construct_txn = MyToken.constructor(8*pow(10, (18+6))).buildTransaction(
+Incrementer = web3.eth.contract(address=contract_address, abi=abi)
+
+increment_tx = Incrementer.functions.increment(value).buildTransaction(
     {
         'from': account_from['address'],
         'nonce': web3.eth.getTransactionCount(account_from['address']),
     }
 )
 
-tx_create = web3.eth.account.signTransaction(construct_txn, account_from['private_key'])
-
+tx_create = web3.eth.account.signTransaction(increment_tx, account_from['private_key'])
 tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
 tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 
-print(f'Contract deployed at address: { tx_receipt.contractAddress }')
-
-
-
+print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')

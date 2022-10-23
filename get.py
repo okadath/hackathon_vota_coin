@@ -21,6 +21,8 @@ print(f'Making a call to contract at address: { contract_address }')
 
 Incrementer = web3.eth.contract(address=contract_address, abi=abi)
 number = Incrementer.functions.balanceOf(address).call()
+# number = Incrementer.functions.adding_values("0xDEE7796E89C82C36BAdd1375076f39D69FafE253").call()
+
 
 
 # int(1*pow(10, (18))
