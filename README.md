@@ -21,3 +21,5 @@ parcel build index.html —public-url '.' #buildea el server
 ```
 
 el build creara la carpeta dist con los archivos minimizados, lista para servirse desde un webserver
+
+

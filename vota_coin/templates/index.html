@@ -13,7 +13,7 @@
     <!--  Social tags      -->
 
 
-
+<!-- <script src="js/require.js"></script> -->
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
     <!-- Icons -->
@@ -22,7 +22,9 @@
  
     <link rel="stylesheet" href="  {% static 'assets/css/argon.min.css' %}" type="text/css">
     Google Tag Manager -->
+  <!-- <script src="./dist/bundle.js" type="module"></script> -->
 
+<!-- <script type="module" src="index.js"></script>  -->
     <!-- End Google Tag Manager -->
 </head>
 
@@ -35,8 +37,8 @@
     <!-- mi mierda -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
-<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
+<!-- <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script> -->
+<!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
 {% include './navbar.html' %}
 
 <section class="section">
@@ -61,9 +63,16 @@
                     <div class="field is-grouped">
                       <div class="control">  
                         <button  type="submit" class="button is-success enableEthereumButton"> Enable Ethereum</button>
+                        <button class="sendEthButton button is-info">Send Eth</button>
+
                         <h2>Account: <span class="showAccount"></span></h2>
                         </div>
                     <br>
+
+                    <button id="connectButton" class="button is-info" onclick="bundle.connect()">Connect</button>
+                    <button id="executeButton" class="button is-success" onclick="bundle.execute()">Execute</button>
+                    <button id="asd" class="button is-success" onclick="bundle.s()">test</button>
+
 
                     </div>
                 </div>
@@ -71,34 +80,73 @@
         <!-- </form> -->
         </nav>
 
+
+                  <script src="./dist/bundle.js" type="text/javascript"></script>
+
+
+
 <script type="text/javascript">
-// In Node.js, con el cdn se inicializa solo
-// const Web3 = require('web3');
+// // In Node.js, con el cdn se inicializa solo
+// // const Web3 = require('web3');
 
-const web33 = new Web3('https://rpc.api.moonbase.moonbeam.network'); 
-console.log(web33);
+// const web33 = new Web3('https://rpc.api.moonbase.moonbeam.network'); 
+// console.log(web33);
 
 
-const ethereumButton = document.querySelector('.enableEthereumButton');
-const showAccount = document.querySelector('.showAccount');
+// const ethereumButton = document.querySelector('.enableEthereumButton');
+// const showAccount = document.querySelector('.showAccount');
 
-ethereumButton.addEventListener('click', () => {
-  const acc=getAccount();
-  printAccount(acc);
+// ethereumButton.addEventListener('click', () => {
+//   const acc=getAccount();
+//   printAccount(acc);
 
-});
+// });
 
-async function getAccount() {
-  const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-  const account = accounts[0];
-  showAccount.innerHTML = account;
-  return account
-}
 
-async function printAccount(account) {
-console.log(account);
+// // const ethereumButton = document.querySelector('.enableEthereumButton');
+// const sendEthButton = document.querySelector('.sendEthButton');
 
-}
+// let accounts = [];
+
+// //Sending Ethereum to an address
+// sendEthButton.addEventListener('click', () => {
+//   ethereum
+//     .request({
+//       method: 'eth_sendTransaction',
+//       params: [
+//         {
+//           from: accounts[0],
+//           to: '0x518561C267F8ac931c40284c1aa06E824BABE434',//cuenta 2
+//           value: '0x429D069189E0000',//3**16 0x
+//           gasPrice: '0x09184e72a000',
+//           gas: '0x2710',
+//         },
+//       ],
+//     })
+//     .then((txHash) => console.log(txHash))
+//     .catch((error) => console.error);
+// });
+
+// // ethereumButton.addEventListener('click', () => {
+// //   getAccount();
+// // });
+
+// // async function getAccount() {
+// //   accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+// // }
+
+
+// async function getAccount() {
+//   const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+//   const account = accounts[0];
+//   showAccount.innerHTML = account;
+//   return account
+// }
+
+// async function printAccount(account) {
+// console.log(account);
+
+// }
 
 </script>
 
@@ -162,6 +210,6 @@ console.log(account);
 </script>
 
 
-<script type="module" src="./static/src.a2b27638.js"></script> 
+<!-- <script type="module" src="./static/src.a2b27638.js"></script>  -->
 
 </html>

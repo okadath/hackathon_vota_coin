@@ -1,7 +1,16 @@
 {
   "dependencies": {
-    "parcel-bundler": "^1.12.5",
-    "solc": "0.4.17",
+    "browserify": "^17.0.0",
+    "ethers": "^5.5.3",
+    "watchify": "^4.0.0",
     "web3": "^1.8.0"
+  },
+  "scripts": {
+    "build": "browserify index.js --standalone bundle -o ./dist/bundle.js",
+    "watch": "watchify index.js --standalone bundle -o ./dist/bundle.js -v"
+  },
+  "devDependencies": {
+    "babelify": "^10.0.0",
+    "http-server": "^14.1.0"
   }
 }
