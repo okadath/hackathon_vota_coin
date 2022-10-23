@@ -58,11 +58,12 @@ async function execute() {
 "internalType":"address","name":"recipient","type":"address"},{
 "internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{
 "inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}];
-    // const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    // await provider.send('eth_requestAccounts', []); // <- this promps user to connect metamask
     const signer = provider.getSigner();
     const contract = new ethers.Contract(contractAddress, abi, signer);
     try {
-      await contract.mint(70000000000000000000);
+      await contract.mint("70000000000000000000");
     } catch (error) {
       console.log(error);
     }
@@ -100,6 +101,41 @@ console.log("asdassssws")
   console.log(`The balance of ${accounts[0]} is: ${balanceFrom} ETH`);
 
 }
+
+async function s2() {
+ 
+
+// const account_from = {
+//   privateKey: 'YOUR-PRIVATE-KEY-HERE',
+// };
+// const contractAddress = 'CONTRACT-ADDRESS-HERE';
+// const _value = 3;
+
+// let wallet = new ethers.Wallet(account_from.privateKey, provider);
+
+// const incrementer = new ethers.Contract(contractAddress, abi, wallet);
+// const increment = async () => {
+//   console.log(
+//     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
+//   );
+
+//   const createReceipt = await incrementer.increment([_value]);
+//   await createReceipt.wait();
+
+//   console.log(`Tx successful with hash: ${createReceipt.hash}`);
+// };
+
+// // const tx = signer.sendTransaction({
+// //     to: "ricmoo.firefly.eth",
+// //     value: ethers.utils.parseEther("1.0")
+// // });
+
+
+
+// increment();
+
+}
+
 
 
 async function connect() {
