@@ -81,6 +81,23 @@ def free_vote(request,id):
 	context_dict["votings"]= Voting.objects.all()
 	return render(request, 'index.html', context_dict)
 
+def registred_vote(request,id,value_vote):
+	context_dict={}
+	# print(request.user)
+	# print("assd")
+	voto=Voting.objects.get(id=id)
+	voto.points=voto.points+1
+	voto.save()
+	if value_vote==0:
+		value=False
+	else:
+		value=True
+	voto_creado=Vote.objects.create(user=request.user, voting=voto,vote=value)
+	voto_creado.save()
+	context_dict["votos"]=Vote.objects.filter(user=request.user)
+	context_dict["votings"]= Voting.objects.all()
+	return render(request, 'index.html', context_dict)
+
 # @login_required(login_url="/")
 # def recompensas(request):
 #     context_dict={}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 	  # //django
@@ -20,18 +21,18 @@ class Voting(models.Model):
 	points = models.IntegerField(blank=True, default=0)
 	points_free = models.IntegerField(blank=True, default=0)
 	user_account_funds = models.CharField(max_length=149,blank=True)
-
+	end_votation = models.DateField(default=timezone.now())
 
 	def __str__(self):
 		return self.name
 
 
 class Vote(models.Model):
-	user = models.OneToOneField(User, on_delete=models.CASCADE)
-	voting = models.ForeignKey(Voting, related_name='votation_user', on_delete=models.CASCADE, default=1)
+	user = models.ForeignKey(User, on_delete=models.CASCADE, unique=False)
+	voting = models.ForeignKey(Voting, related_name='votation_user', on_delete=models.CASCADE, default=1,unique=False)
 	vote=models.BooleanField(default=False)#0 No, 1 Yes
 
 
 	def __str__(self):
-		return self.user+"-"+str(self.voting)+"-"+str(self.vote)
+		return self.user.username+"-"+str(self.voting)+"-"+str(self.vote)
  

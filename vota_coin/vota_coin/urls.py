@@ -29,6 +29,8 @@ urlpatterns = [
     path("login/", login_func, name='login_func'),
     path("", home, name='home'),
     path("vota_free/<int:id>", free_vote, name='free_vote'),
+    path("registred_vote/<int:id>/<int:value_vote>", registred_vote, name='registred_vote'),
+
 
     path('logout/', logout, name='logout'),
     path("votacoin", votacoin, name='votacoin'),
