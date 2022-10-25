@@ -14,5 +14,6 @@ from django.apps import AppConfig
 
 class UserAccountConfig(AppConfig):
     name ='extended_user'
+    label="extended_user"
     def ready(self):
         import extended_user.signals 

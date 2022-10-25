@@ -1,1 +1,1 @@
-default_app_config = 'extended_user.apps.UserAccountConfig'
+# default_app_config = 'votaciones.apps.UserAccountConfig'

@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from extended_user.auth import EmailAuthBackend,IDPasswordlessAuth, EmailPasswordlessAuth, UsernamePasswordlessAuth
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
-
+from votaciones.models import *
 # Create your views here.
 # def login(request):
 #     context_dict={}
@@ -66,6 +66,19 @@ def votacoin(request):
 def home(request):
 	context_dict={}
 	print(request.user)
+	# print("assd")
+	context_dict["votings"]= Voting.objects.all()
+	return render(request, 'index.html', context_dict)
+
+
+def free_vote(request,id):
+	context_dict={}
+	# print(request.user)
+	# print("assd")
+	voto=Voting.objects.get(id=id)
+	voto.points_free=voto.points_free+1
+	voto.save()
+	context_dict["votings"]= Voting.objects.all()
 	return render(request, 'index.html', context_dict)
 
 # @login_required(login_url="/")

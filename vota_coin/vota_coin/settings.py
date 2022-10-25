@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "extended_user", 
     "import_export",
     "widget_tweaks",
-    "vota_coin",
+    "votaciones",
 ]
 
 MIDDLEWARE = [
