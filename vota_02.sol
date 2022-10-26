@@ -28,10 +28,10 @@ contract Vota_token is ERC20, Ownable {
 
     //Function adding values to the mapping
     function adding_values(address a, string memory name) public {
-      //verifica si existe el valor, los valores numericos por default son 0
-        require(a != address(0), 'Address field is null');
-        require(bytes(name).length> 0, "Name field is null");
-        require(bytes(result[a].name).length == 0, "Only may have one votation per address, use another address"); 
+        //verifica si existe el valor, los valores numericos por default son 0
+        require(a != address(0), '|Address field is null');
+        require(bytes(name).length> 0, "|Name field is null");
+        require(bytes(result[a].name).length == 0, "|Only may have one votation per address, use another address"); 
         result[a].name = name;
         result[a].points=0 ;
         votes_result.push(a); 
@@ -45,18 +45,12 @@ contract Vota_token is ERC20, Ownable {
     function get_result_of_address( address a) view public returns ( uint ) {
         return result[a].points;
     }
-    //     function get_result_of_address( address a) view public returns ( uint ) {
-    //     return result[a].points;
-    // }
 
     function vote( address a)  public {
-
-
-		// uint256 contractBalance = address(this).balance;
-
-        require(a != address(0), 'Address field is null');;
-        require(result[a].points<=9, 'Votation is finished with success');   
-        require(bytes(result[a].name).length > 0); 
+        require(balanceOf(msg.sender)>10000000000000000000, "|Not enough Vota_token in the vote address ");
+        require(a != address(0), '|Address field is null');
+        require(result[a].points<=9, '|Votation is finished with success');   
+        require(bytes(result[a].name).length > 0, '|Votation is indefined, vote for nominated address'); 
         result[a].points=result[a].points+1;
 
     }
