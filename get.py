@@ -34,3 +34,47 @@ print(f'The current number stored is: { number } ')
 # number = Incrementer.functions._mint(address,int(1*pow(10, (18)))).call()
 
 # print(f'The current number stored is: { number } ')
+votes_list= Incrementer.functions.get_list_votes_result( ).call()
+print("votes list="+str(votes_list))
+
+
+vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
+print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
+
+
+
+
+
+
+# increment_tx = Incrementer.functions.adding_values(address,"test name" ).buildTransaction(
+#     {
+#         'from': address,
+#         'nonce': web3.eth.getTransactionCount(address),
+#     }
+# )
+
+# tx_create = web3.eth.account.signTransaction(increment_tx, private_key)
+# tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
+# tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+
+# print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+
+# for i in range(0,20):
+# increment_tx = Incrementer.functions.vote(address).buildTransaction(
+#     {
+#         'from': address,
+#         'nonce': web3.eth.getTransactionCount(address),
+#     }
+# )
+
+# tx_create = web3.eth.account.signTransaction(increment_tx, private_key)
+# tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
+# tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+
+# print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
+
+
+vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
+print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
