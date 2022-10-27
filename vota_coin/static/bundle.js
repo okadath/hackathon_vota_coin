@@ -95,17 +95,15 @@ async function send_initial_value() {
   }
 }
 
+const showAccount = document.querySelector('.showAccount');
 
 async function get_balance() {
   if (typeof window.ethereum !== "undefined") {
     try {
           const accounts = await ethereum.request({ method: "eth_accounts" });
           const balance = ethers.utils.formatEther(await contract.balanceOf(accounts[0]));
-        // const accounts = await ethereum.request({ method: "eth_accounts" });
+  showAccount.innerHTML = balance;
 
-      // const balance = await contract.balanceOf(accounts[0]);
-      // const amount=await provider.getBalance(accounts[0]);
-      // signerBalance = await contract.balanceOf(accounts[0]);
       console.log(balance);
 
     } catch (error) {
@@ -128,7 +126,6 @@ console.log("asdassssws")
   console.log(`The balance of ${accounts[0]} is: ${balanceFrom} ETH`);
 
 }
-
 
 
 
@@ -156,6 +153,7 @@ module.exports = {
   connect,
   // execute,
   get_balance,
+  // votation_list,
 };
 
 

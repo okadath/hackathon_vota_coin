@@ -34,6 +34,8 @@ urlpatterns = [
 
     path('logout/', logout, name='logout'),
     path("votacoin", votacoin, name='votacoin'),
+    path("get_token", get_token, name='get_token'),
+    path("token_claimed", token_claimed, name='token_claimed'),
 
 ]
 

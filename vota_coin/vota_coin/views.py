@@ -115,3 +115,55 @@ def logout(request):
 	logout_django(request)
 	# return render(request, 'index.html', context_dict)
 	return redirect('home')
+
+from django.conf import settings
+
+def get_token(request):
+	# print(request.POST)
+	context_dict={}
+
+	# if 
+	if request.method =="POST":
+		address=request.POST["id_account"]
+		Incrementer = getattr(settings, "CONTRACT_OBJECT", None)
+		address_sender = getattr(settings, "ADDRESS", None)
+		private_key = getattr(settings, "PRIVATE_KEY", None)
+		web3 = getattr(settings, "WEB3_VAR", None)
+
+		
+
+
+
+
+		# number = Incrementer.functions.transferFrom(address_sender, address , 200000000000000000000).call()
+
+		increment_tx = Incrementer.functions.transfer(address,200000000000000000000).buildTransaction(
+		    {
+		        'from': address_sender,
+		        'nonce': web3.eth.getTransactionCount(address_sender),
+		        # "gas": 140000,
+		        # 'maxFeePerGas': web3.toWei('2', 'gwei'),
+		        # 'maxPriorityFeePerGas': web3.toWei('1', 'gwei'),
+		    }
+		)
+
+		tx_create = web3.eth.account.signTransaction(increment_tx, private_key)
+		tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
+		tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+		return redirect('token_claimed')
+
+	return render(request, 'get_token.html', context_dict)
+
+
+
+
+def token_claimed(request):
+	context_dict={}
+
+	# print("deslogueado")
+	# logout_django(request)
+	# return render(request, 'index.html', context_dict)
+	return render(request, 'token_claimed.html', context_dict)
+
+
+

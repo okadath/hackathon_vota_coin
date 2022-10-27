@@ -94,12 +94,14 @@ async function send_initial_value() {
   }
 }
 
+const showAccount = document.querySelector('.showAccount');
 
 async function get_balance() {
   if (typeof window.ethereum !== "undefined") {
     try {
           const accounts = await ethereum.request({ method: "eth_accounts" });
           const balance = ethers.utils.formatEther(await contract.balanceOf(accounts[0]));
+  showAccount.innerHTML = balance;
 
       console.log(balance);
 
@@ -123,7 +125,6 @@ console.log("asdassssws")
   console.log(`The balance of ${accounts[0]} is: ${balanceFrom} ETH`);
 
 }
-
 
 
 
@@ -151,5 +152,6 @@ module.exports = {
   connect,
   // execute,
   get_balance,
+  // votation_list,
 };
 

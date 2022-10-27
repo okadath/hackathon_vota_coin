@@ -46,6 +46,8 @@
     rel="stylesheet"
     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0"
     crossorigin="anonymous">
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <!-- <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script> -->
     <!-- <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script> -->
     {% include './navbar.html' %}
@@ -81,15 +83,69 @@
                     <div class="control">  
                   <button id="connectButton" class="button is-info" onclick="bundle.connect()">Connect</button>
                   <button id="executeButton" class="button is-success" onclick="bundle.get_balance()">Get Balance of Vota_token</button>
-                  <button id="asd" class="button is-success" onclick="bundle.s()">test</button>
+
+                  <button id="asd" class="button is-success" >Create votation</button>
+                  <h5>Balance Account: <span class="showAccount"></span></h5>
+                  
+                </div>
                 </div>
 
-                </div>
+                   <div class="field is-grouped">   
+                <!-- <main class="cards"> -->
+                  <div >
+                    <div id="test12" class="control" style="display: flex; flex-direction: row; flex-wrap: wrap">
+                      
+                    </div>
+                  </div>
+                <!-- </main> --> 
+              </div>
+
+
+                
               </div>
             </div>
             <!-- </form> -->
           </nav>
 
+
+<script type="text/javascript">
+
+ function votation_list(){
+  const a= [
+{ category: "Material", id: '1', name: 'Brakedown of machine' },
+{ category: "Material", id: '2', name: 'Brakedown of machine' },
+{ category: "Tool", id: '3', name: 'Brakedown of machine' },
+{ category: "Tool", id: '4', name: 'Brakedown of line' },
+{ category: "Tool", id: '5', name: 'Brakedown of machine' },
+{ category: "Tool", id: '6', name: 'Brakedown of line' },
+{ category: "Tool", id: '7', name: 'Brakedown of machine' },
+{ category: "Tool", id: '8', name: 'Brakedown of line' }
+];
+return a;
+}
+
+
+
+  $(document).ready(function(){
+var mokData = votation_list();
+$.each(mokData, function (i) {
+    var templateString = 
+    ' <div class="card" style="width: 18rem; margin: 10px"> <div ><article class="card"><h2>' 
+    + mokData[i].category + '</h2><p>'
+     + mokData[i].name + '</p><p>'
+      + mokData[i].id 
+      + '</p><button id="tes">Start</button></article></div></div>';
+
+    $('#test12').append(templateString);
+})
+
+$("#tes").on("click", function () {
+    alert("test");
+});
+});
+
+
+</script>
           <!-- in server -->
           <script src="http://127.0.0.1:8000/static/bundle.js" type="module"></script>
           <!-- in local js -->

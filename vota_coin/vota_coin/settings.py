@@ -25,6 +25,49 @@ SECRET_KEY = 'django-insecure-ezyf28()3cv(bk71-wwpjvx1_!_t%8prult=z(qp+std7(49mp
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# 1. Import solcx
+import solcx
+
+# 2. If you haven't already installed the Solidity compiler, uncomment the following line
+# solcx.install_solc()
+solcx.install_solc(version='0.7.0')
+solcx.set_solc_version('0.7.0')
+# 3. Compile contract
+temp_file = solcx.compile_files('../vota_02.sol')
+
+# 4. Export contract data
+abi = temp_file['../vota_02.sol:Vota_token']['abi']
+bytecode = temp_file['../vota_02.sol:Vota_token']['bin']
+
+from web3 import Web3
+from decouple import config
+
+PRIVATE_KEY = config('secret')
+ADDRESS = config('address')
+CONTRACT = config('contract')
+
+PRIVATE_KEY_B = config('secret_B')
+ADDRESS_B = config('address_B')
+
+
+provider_rpc = {
+    'development': 'http://localhost:9933',
+    'alphanet': 'https://rpc.api.moonbase.moonbeam.network',
+}
+WEB3_VAR = Web3(Web3.HTTPProvider(provider_rpc["alphanet"]))  # Change to correct network
+
+
+CONTRACT_ADDRESS = CONTRACT
+
+# ADDRESS= address
+
+# print(f'Making a call to contract at address: { contract_address }')
+
+CONTRACT_OBJECT = WEB3_VAR.eth.contract(address=CONTRACT_ADDRESS, abi=abi)
+
+
+
+
 ALLOWED_HOSTS = []
 
 
