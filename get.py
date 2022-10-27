@@ -14,7 +14,7 @@ provider_rpc = {
     'development': 'http://localhost:9933',
     'alphanet': 'https://rpc.api.moonbase.moonbeam.network',
 }
-web3 = Web3(Web3.HTTPProvider(provider_rpc["development"]))  # Change to correct network
+web3 = Web3(Web3.HTTPProvider(provider_rpc["alphanet"]))  # Change to correct network
 
 contract_address = contract
 
@@ -70,22 +70,22 @@ print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
 
 
 # for i in range(0,20):
-increment_tx = Incrementer.functions.vote(address).buildTransaction(
-    {
-        'from': address_B,
-        'nonce': web3.eth.getTransactionCount(address_B),
-    }
-)
+# increment_tx = Incrementer.functions.vote(address).buildTransaction(
+#     {
+#         'from': address_B,
+#         'nonce': web3.eth.getTransactionCount(address_B),
+#     }
+# )
 
-tx_create = web3.eth.account.signTransaction(increment_tx, private_key_B)
-tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
-tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+# tx_create = web3.eth.account.signTransaction(increment_tx, private_key_B)
+# tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
+# tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 
-print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
+# print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
 
 
-vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
-print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
+# vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
+# print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
 
 
 

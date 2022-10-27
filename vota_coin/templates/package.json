@@ -6,7 +6,7 @@
     "web3": "^1.8.0"
   },
   "scripts": {
-    "build": "browserify index.js --standalone bundle -o ./dist/bundle.js",
+    "build": "browserify index.js --standalone bundle -o ../static/bundle.js",
     "watch": "watchify index.js --standalone bundle -o ./dist/bundle.js -v"
   },
   "devDependencies": {
