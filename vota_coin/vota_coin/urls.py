@@ -36,6 +36,9 @@ urlpatterns = [
     path("votacoin", votacoin, name='votacoin'),
     path("get_token", get_token, name='get_token'),
     path("token_claimed", token_claimed, name='token_claimed'),
+    path("get_votations/<str:address>", get_votations, name='get_votations'),
+    path("vote", vote, name='vote'),
+    path("create_votation", create_votation, name='create_votation'),
 
 ]
 

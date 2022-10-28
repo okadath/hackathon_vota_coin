@@ -59,7 +59,7 @@
         </h1>
         <nav class="panel">
           <p class="panel-heading">
-            Votacion para holders
+            Votation(Holders)
           </p>
           {% if error_messages %}
           <div class="alert alert-danger">
@@ -84,9 +84,11 @@
                   <button id="connectButton" class="button is-info" onclick="bundle.connect()">Connect</button>
                   <button id="executeButton" class="button is-success" onclick="bundle.get_balance()">Get Balance of Vota_token</button>
 
-                  <button id="asd" class="button is-success" >Create votation</button>
-                  <h5>Balance Account: <span class="showAccount"></span></h5>
-                  
+                  <a href="{% url 'get_votations' 'a'%} " class="btn btn-primary is is-success">Vote</a> 
+                  <a href="{% url 'create_votation' %} " class="btn btn-primary is is-info">Create votation</a> 
+                  <br>
+                  Only holders can vote, You must have more of 100 Vota_token to vote, the tokens are not locked but must have in your metamask account for voting
+                  <h5>Balance Account: <span class="showAccount"></span></h5> 
                 </div>
                 </div>
 
@@ -110,39 +112,39 @@
 
 <script type="text/javascript">
 
- function votation_list(){
-  const a= [
-{ category: "Material", id: '1', name: 'Brakedown of machine' },
-{ category: "Material", id: '2', name: 'Brakedown of machine' },
-{ category: "Tool", id: '3', name: 'Brakedown of machine' },
-{ category: "Tool", id: '4', name: 'Brakedown of line' },
-{ category: "Tool", id: '5', name: 'Brakedown of machine' },
-{ category: "Tool", id: '6', name: 'Brakedown of line' },
-{ category: "Tool", id: '7', name: 'Brakedown of machine' },
-{ category: "Tool", id: '8', name: 'Brakedown of line' }
-];
-return a;
-}
+//  function votation_list(){
+//   const a= [
+// { category: "Material", id: '1', name: 'Brakedown of machine' },
+// { category: "Material", id: '2', name: 'Brakedown of machine' },
+// { category: "Tool", id: '3', name: 'Brakedown of machine' },
+// { category: "Tool", id: '4', name: 'Brakedown of line' },
+// { category: "Tool", id: '5', name: 'Brakedown of machine' },
+// { category: "Tool", id: '6', name: 'Brakedown of line' },
+// { category: "Tool", id: '7', name: 'Brakedown of machine' },
+// { category: "Tool", id: '8', name: 'Brakedown of line' }
+// ];
+// return a;
+// }
 
 
 
-  $(document).ready(function(){
-var mokData = votation_list();
-$.each(mokData, function (i) {
-    var templateString = 
-    ' <div class="card" style="width: 18rem; margin: 10px"> <div ><article class="card"><h2>' 
-    + mokData[i].category + '</h2><p>'
-     + mokData[i].name + '</p><p>'
-      + mokData[i].id 
-      + '</p><button id="tes">Start</button></article></div></div>';
+//   $(document).ready(function(){
+// var mokData = votation_list();
+// $.each(mokData, function (i) {
+//     var templateString = 
+//     ' <div class="card" style="width: 18rem; margin: 10px"> <div ><article class="card"><h2>' 
+//     + mokData[i].category + '</h2><p>'
+//      + mokData[i].name + '</p><p>'
+//       + mokData[i].id 
+//       + '</p><button id="tes">Start</button></article></div></div>';
 
-    $('#test12').append(templateString);
-})
+//     $('#test12').append(templateString);
+// })
 
-$("#tes").on("click", function () {
-    alert("test");
-});
-});
+// $("#tes").on("click", function () {
+//     alert("test");
+// });
+// });
 
 
 </script>
@@ -153,7 +155,7 @@ $("#tes").on("click", function () {
 
           <nav class="panel">
             <p class="panel-heading">
-              Votacion con registro 
+              Votation(Registred users)
             </p>
             {% if error_messages %}
             <div class="alert alert-danger">
@@ -183,11 +185,11 @@ $("#tes").on("click", function () {
                           <h5 class="card-title">{{ card.name }}</h5> 
                         </div>
                         <p class="card-text">{{ card.description }}</p>
-                        <p>Votos con registro:{{card.points}}</a>
+                        <p>Votes(with registry):{{card.points}}</a>
 
-                          <p>Votos libres:{{card.points_free}}</a>
+                          <!-- <p>Votos libres:{{card.points_free}}</a> -->
                             <br>
-                            <a href="{% url 'registred_vote'  card.id  0%} " class="btn btn-primary">Votar</a> 
+                            <a href="{% url 'registred_vote'  card.id  0%} " class="btn btn-primary">Vote</a> 
                         </div>
                       </div>
                       {% endfor %}
@@ -206,7 +208,10 @@ $("#tes").on("click", function () {
 
                 {% else %}
                 <form method="post" action="{% url 'login_func' %}">
+
                   {% csrf_token %}
+                   Testing Account User:vintaw.01@gmail.com Password:qweqwe35$
+
                   <div class="panel-block">
                     <div class="field">
                       <label class="label">Email</label>
@@ -228,7 +233,7 @@ $("#tes").on("click", function () {
                       <div class="field is-grouped">
                         <div class="control"> 
                           <button class="button is-link" type="submit" >Login</button>
-                          <button class="button is-success" type="submit" >No tienes cuenta? Registrate</button>
+                          <button class="button is-success" type="submit"  disabled> Sign In</button>
 
                         </div>
                         <br>
@@ -249,7 +254,7 @@ $("#tes").on("click", function () {
 
               <nav class="panel">
                 <p class="panel-heading">
-                  Votacion libre
+                  Votation(Free)
                 </p>
                 {% if error_messages %}
                 <div class="alert alert-danger">
@@ -271,11 +276,11 @@ $("#tes").on("click", function () {
                               <h5 class="card-title">{{ card.name }}</h5> 
                             </div>
                             <p class="card-text">{{ card.description }}</p>
-                            <p>Votos con registro:{{card.points}}</a>
+                            <!-- <p>Votos con registro:{{card.points}}</a> -->
 
-                              <p>Votos libres:{{card.points_free}}</a>
+                              <p>Votes:{{card.points_free}}</a>
                                 <br>
-                                <a href="{% url 'free_vote'  card.id %} " class="btn btn-primary">Votar</a>
+                                <a href="{% url 'free_vote'  card.id %} " class="btn btn-primary">Vote</a>
                                 <!-- <a href="/command/{{ card.id }}/delete" class="btn btn-primary">Delete</a> -->
                               </div>
                             </div>

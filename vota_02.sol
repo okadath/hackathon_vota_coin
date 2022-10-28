@@ -46,8 +46,8 @@ contract Vota_token is ERC20, Ownable {
         return result[a].points;
     }
 
-    function vote( address a)  public {
-        require(balanceOf(msg.sender)>10000000000000000000, "|Not enough Vota_token in the vote address ");
+    function vote( address propose,address a)  public {
+        require(balanceOf(propose)>1000000000000000000, "|Not enough Vota_token in the vote address ");
         require(a != address(0), '|Address field is null');
         require(result[a].points<=9, '|Votation is finished with success');   
         require(bytes(result[a].name).length > 0, '|Votation is indefined, vote for nominated address'); 

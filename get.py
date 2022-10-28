@@ -46,7 +46,7 @@ votes_list= Incrementer.functions.get_list_votes_result( ).call()
 print("votes list="+str(votes_list))
 
 
-vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
+vote_of_addres=Incrementer.functions.get_result_of_address("0x518561C267F8ac931c40284c1aa06E824BABE434").call()
 print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
 
 
@@ -70,22 +70,39 @@ print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
 
 
 # for i in range(0,20):
-# increment_tx = Incrementer.functions.vote(address).buildTransaction(
+# increment_tx = Incrementer.functions.transfer( address_B,10000000000000000000).buildTransaction(
 #     {
-#         'from': address_B,
-#         'nonce': web3.eth.getTransactionCount(address_B),
+#         'from': address,
+#         'nonce': web3.eth.getTransactionCount(address),
 #     }
 # )
 
-# tx_create = web3.eth.account.signTransaction(increment_tx, private_key_B)
+# tx_create = web3.eth.account.signTransaction(increment_tx, private_key)
+# tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
+# tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
+
+# print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
+
+address_B="0x518561C267F8ac931c40284c1aa06E824BABE434"
+vote_of_addres=Incrementer.functions.get_result_of_address(address_B).call()
+print("votos para la direccion "+str(address_B)+" es ="+ str(vote_of_addres))
+
+# increment_tx = Incrementer.functions.vote( address,address_B).buildTransaction(
+#     {
+#         'from': address,
+#         'nonce': web3.eth.getTransactionCount(address),
+#     }
+# )
+
+# tx_create = web3.eth.account.signTransaction(increment_tx, private_key)
 # tx_hash = web3.eth.sendRawTransaction(tx_create.rawTransaction)
 # tx_receipt = web3.eth.waitForTransactionReceipt(tx_hash)
 
 # print(f'Tx successful with hash: { tx_receipt.transactionHash.hex() }')
 
 
-# vote_of_addres=Incrementer.functions.get_result_of_address(address).call()
-# print("votos para la direccion "+str(address)+" es ="+ str(vote_of_addres))
+# vote_of_addres=Incrementer.functions.get_result_of_address(address_B).call()
+# print("votos para la direccion "+str(address_B)+" es ="+ str(vote_of_addres))
 
 
 
