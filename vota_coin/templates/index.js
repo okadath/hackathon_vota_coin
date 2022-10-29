@@ -173,7 +173,7 @@ module.exports = {
   connect,
   // execute,
   get_balance,
-  test_func,
+  // test_func,
   // votation_list,
 };
 

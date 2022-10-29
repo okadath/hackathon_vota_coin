@@ -63,6 +63,13 @@
      
   <br>
 </a>
+
+<a class="navbar-item" href="#">
+    <button class="button is-link  " onclick="location.reload();">Reload Page (events not yet in frontend)</button>
+
+     
+  <br>
+</a>
 </div>
 <br>
 
@@ -138,7 +145,7 @@
                           <p>Votes in blockchain:{{points}}</a>
                             <br>
 
-                            <button id="{{card.user_account_funds}}"  class="btn btn-primary" onclick="bundle.test_func('{{card.user_account_funds}}')">Vote</a> 
+                            <button id="{{card.user_account_funds}}"  class="btn btn-primary" onclick='call_vote("{{card.user_account_funds}}")'>Vote</a> 
                             <!-- <a href="{% url 'get_votations'  card.user_account_funds %} " id="{{card.user_account_funds}}"  class="btn btn-primary">Vote</a>  -->
 
 
@@ -239,7 +246,7 @@ let abi   = [
       return accounts[0];
     }
 
-    async function run(addresss) {
+    async function call_vote(addresss) {
       // await loadWeb3();
       window.contract = await loadContract();
       const account = await getCurrentAccount();
@@ -273,8 +280,31 @@ let abi   = [
       console.log(result)
     }
 
+
+async function vote_func(address_votation) {
+// var result = await contract.get_list_votes_result();
+
+
+const transaction = await contract.vote(address_votation,{gasLimit: ethers.utils.parseEther("0.0001")});
+
+const transactionReceipt = await transaction.wait();
+console.log(transaction);
+
+// if (transactionReceipt.status !== 1) {
+//    alert('error message');
+//    return;
+// }
+
+console.log(result);
+return result;
+
+
+
+}
+
     if (typeof window.ethereum !== 'undefined') {
-      run("0x518561C267F8ac931c40284c1aa06E824BABE434" )
+       console.log('MetaMask is installed!');
+      // run("0x518561C267F8ac931c40284c1aa06E824BABE434" )
     }
 
 
