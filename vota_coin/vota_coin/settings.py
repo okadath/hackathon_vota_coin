@@ -119,6 +119,42 @@ TEMPLATES = [
 WSGI_APPLICATION = 'vota_coin.wsgi.application'
 
 
+
+
+CORS_ORIGIN_WHITELIST = ( 
+    #aqui tambien agregaremos la direccion tanto del server 
+    # de react como la del server de django de aws (con los puertos usados!!)
+    'http://localhost',
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3000",
+)
+CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
+
+CSRF_COOKIE_NAME = "csrftoken"
+CSRF_COOKIE_HTTPONLY = False
+
+CORS_EXPOSE_HEADERS = ["Content-Type", "X-CSRFToken"]
+CORS_ALLOW_CREDENTIALS = True
+
+
+CORS_ALLOWED_ORIGINS = [ 
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+]
+
+
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
