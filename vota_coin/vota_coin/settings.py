@@ -68,7 +68,7 @@ CONTRACT_OBJECT = WEB3_VAR.eth.contract(address=CONTRACT_ADDRESS, abi=abi)
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
