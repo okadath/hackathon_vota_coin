@@ -1,0 +1,14 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/home/hackathon_vota_coin/vota_coin
+TIMEOUT=360
+ExecStart=/home/hackathon_vota_coin/vota_coin/venv/bin/gunicorn --timeout 3600  --access-logfile /home/hackathon_vota_coin/vota_coin/gunicorn-access.log --error-logfile /home/hackathon_vota_coin/vota_coin/gunicorn-error.log  --workers 6  --bind unix:/run/gunicorn.sock  vota_coin.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
