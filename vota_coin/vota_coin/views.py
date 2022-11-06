@@ -25,8 +25,8 @@ def login_func(request):
 			# print(request.POST['id_user'] )
 		# try:
 			user = EmailAuthBackend.authenticate(
-				username=request.POST['id_email'],
-				password=request.POST['id_password']
+				username=request.POST['id_email'].replace(" ",""),
+				password=request.POST['id_password'].replace(" ","")
 			)
 		except Exception as e: 
 			context_dict["error_messages"]="no se pudo loguear, contactar soporte tecnico y brinde id de usuario y demas datos"

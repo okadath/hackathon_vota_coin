@@ -87,7 +87,8 @@
                   <a href="{% url 'get_votations' 'a'%} " class="btn btn-primary is is-success">Vote</a> 
                   <a href="{% url 'create_votation' %} " class="btn btn-primary is is-info">Create votation</a> 
                   <br>
-                  Only holders can vote, You must have more of 100 Vota_token to vote, the tokens are not locked but must have in your metamask account for voting
+                  Only holders can vote, You must have more of 100 Vota_token to vote<br>
+                  the tokens are not locked but must have in your metamask account for voting
                   <h5>Balance Account: <span class="showAccount"></span></h5> 
                 </div>
                 </div>
@@ -210,8 +211,10 @@
                 <form method="post" action="{% url 'login_func' %}">
 
                   {% csrf_token %}
-                   Testing Account User:vintaw.01@gmail.com Password:qweqwe35$
-
+                   Testing Account 
+                   <br>User:vintaw.01@gmail.com 
+                   <br>Password:qweqwe35$
+                   <br>
                   <div class="panel-block">
                     <div class="field">
                       <label class="label">Email</label>
