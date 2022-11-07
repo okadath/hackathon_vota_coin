@@ -142,21 +142,24 @@ async function connect() {
               method: 'wallet_switchEthereumChain',
               params: [{ chainId: "0x507" }]
             });
-                        console.log("conectedd")
+             await ethereum.request({ method: "eth_requestAccounts" });
+                  console.log("conectedd2")
+                console.log("conectedd")
+
 
           } catch (err) {
-            console.log("error")
-            console.log(err)
-            console.log(err.code)
+          //   console.log("error")
+          //   console.log(err)
+          //   console.log(err.code)
               // This error code indicates that the chain has not been added to MetaMask
             if (err.code === 4902) {
-                          console.log("error 4902")
+                          // console.log("error 4902")
 
               await window.ethereum.request({
                 method: 'wallet_addEthereumChain',
                 params: [
                   {
-                    chainName: "Moonbase Alpha",
+                    chainName: "Moonbeam Dev",
                     chainId: "0x507",
                     nativeCurrency: {
                       name: 'DEV',
@@ -174,6 +177,8 @@ async function connect() {
             
           }
         }
+
+
 
     document.getElementById("connectButton").innerHTML = "Connected";
     const accounts = await ethereum.request({ method: "eth_accounts" });

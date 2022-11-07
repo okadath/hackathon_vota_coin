@@ -141,7 +141,10 @@ async function connect() {
               method: 'wallet_switchEthereumChain',
               params: [{ chainId: "0x507" }]
             });
-                        console.log("conectedd")
+             await ethereum.request({ method: "eth_requestAccounts" });
+                  console.log("conectedd2")
+                console.log("conectedd")
+
 
           } catch (err) {
           //   console.log("error")
@@ -155,7 +158,7 @@ async function connect() {
                 method: 'wallet_addEthereumChain',
                 params: [
                   {
-                    chainName: "Moonbase Alpha",
+                    chainName: "Moonbeam Dev",
                     chainId: "0x507",
                     nativeCurrency: {
                       name: 'DEV',
