@@ -133,11 +133,49 @@ console.log("asdassssws")
 
 async function connect() {
   if (typeof window.ethereum !== "undefined") {
-    try {
-      await ethereum.request({ method: "eth_requestAccounts" });
-    } catch (error) {
-      console.log(error);
-    }
+    const chainId = 1287 
+
+    if (window.ethereum.networkVersion !== chainId) {
+          try {
+            await window.ethereum.request({
+              method: 'wallet_switchEthereumChain',
+              params: [{ chainId: "0x507" }]
+            });
+                        console.log("conectedd")
+
+          } catch (err) {
+          //   console.log("error")
+          //   console.log(err)
+          //   console.log(err.code)
+              // This error code indicates that the chain has not been added to MetaMask
+            if (err.code === 4902) {
+                          // console.log("error 4902")
+
+              await window.ethereum.request({
+                method: 'wallet_addEthereumChain',
+                params: [
+                  {
+                    chainName: "Moonbase Alpha",
+                    chainId: "0x507",
+                    nativeCurrency: {
+                      name: 'DEV',
+                      symbol: 'DEV',
+                      decimals: 18
+                  },
+
+                    rpcUrls: ["https://rpc.api.moonbase.moonbeam.network"],
+                    blockExplorerUrls: ["https://moonbase.moonscan.io/"]
+                  }
+                ]
+
+              });
+            }
+            
+          }
+        }
+
+
+
     document.getElementById("connectButton").innerHTML = "Connected";
     const accounts = await ethereum.request({ method: "eth_accounts" });
     console.log(accounts);
@@ -146,7 +184,16 @@ async function connect() {
     document.getElementById("connectButton").innerHTML =
       "Please install MetaMask";
   }
+
+
+
+
+
 }
+
+
+
+
 
 // balances();
 
