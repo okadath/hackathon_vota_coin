@@ -11,13 +11,14 @@ Es una plataforma similar a un crowdfunding por votacion para solicitar una cant
 
 
 * Un ejemplo de aplicacion:
-En Mexico se hallan aproximadamente 8000 personas encarceladas por falta de traductor (fuentes: reporte de la corte interamericana de derechos humanos : [https://www.corteidh.or.cr/sitios/observaciones/OC-29/12_CIM.pdf ](https://www.corteidh.or.cr/sitios/observaciones/OC-29/12_CIM.pdf) pagina 15 seccion iii, 
+En Mexico se hallan aproximadamente 8000 personas encarceladas por falta de traductor (Fuentes: Reporte de la Corte Interamericana de Derechos Humanos: [https://www.corteidh.or.cr/sitios/observaciones/OC-29/12_CIM.pdf ](https://www.corteidh.or.cr/sitios/observaciones/OC-29/12_CIM.pdf) pagina 15 seccion iii, 
 [https://elpais.com/mexico/2021-07-16/encarcelados-por-no-hablar-espanol-la-agonia-de-los-indigenas-en-las-prisiones-de-mexico.html](https://elpais.com/mexico/2021-07-16/encarcelados-por-no-hablar-espanol-la-agonia-de-los-indigenas-en-las-prisiones-de-mexico.html)
+
 Dada la inaccesibilidad a interpretes y la falta de salarios dignos  a los traductores durante los procesos legales, una aportacion economica podria ayudar al trascurso de los procesos en los que se encuentran al mismo tiempo que se concientiza respecto al problema del solicitante.
 
 
 
-Para esto se crea una votacion(similar a un crowdfunding) en la que los holders de la moneda votan por que problema a apoyar, se realizara un minteo de moneda lo suficiente para poder otorgarselo al solicitante(para prevenir inflacion de la moneda, a futuro se planea que se queme una fraccion del valor holdeado, o del gas de la transaccion para cada votacion y que este valor quemado sea el entregado al solicitante, al estar en la red de Moonbeam se requiere usar la moneda de la red apra pagar el gas, esto se cambiara a futuro).
+Para esto se crea una votacion(similar a un crowdfunding) en la que los holders de la moneda votan por que problema a apoyar, se realizara un minteo de moneda lo suficiente para poder otorgarselo al solicitante(para prevenir inflacion de la moneda, a futuro se planea que se queme una fraccion del gas de la transaccion para cada votacion y que este valor quemado sea el entregado al solicitante, al estar en la red de Moonbeam se requiere usar la moneda de dicha red DEV para pagar el gas, esto se cambiara a futuro).
 
 
 
