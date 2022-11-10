@@ -46,6 +46,10 @@ https://github.com/okadath/hackathon_vota_coin
 
 
 #### Link del video
+[https://youtu.be/k2RvNxICaVk](https://youtu.be/k2RvNxICaVk)
+
+demostracion de la plataforma:
+[https://youtu.be/k2RvNxICaVk](https://youtu.be/k2RvNxICaVk)
 
 
 #### icono![alt text](https://github.com/okadath/hackathon_vota_coin/blob/main/nodecore_vote_coin_with_V_in_a_golden_coin_background_white_log_13d0c9e5-58d5-42fa-986d-c989877a4596.png)
